@@ -51,17 +51,17 @@ predict = img_to_num()
 
 vid = cv2.VideoCapture(r"video.mp4")
 
-frame_width = int(vid.get(3))
-frame_height = int(vid.get(4))
+# frame_width = int(vid.get(3))
+# frame_height = int(vid.get(4))
 
-size = (frame_width, frame_height)
+# size = (frame_width, frame_height)
 
-# Below VideoWriter object will create
-# a frame of above defined The output
-# is stored in 'filename.avi' file.
-result = cv2.VideoWriter('filename.avi',
-                         cv2.VideoWriter_fourcc(*'MJPG'),
-                         10, size)
+# # Below VideoWriter object will create
+# # a frame of above defined The output
+# # is stored in 'filename.avi' file.
+# result = cv2.VideoWriter('filename.avi',
+#                          cv2.VideoWriter_fourcc(*'MJPG'),
+#                          10, size)
 
 while(True):
     new_frame_time = time.time()
@@ -293,11 +293,11 @@ while(True):
     diff = end - start
     if diff > 0:
         cv2.putText(frame, f"FPS ~ {1 / diff: .3f}", (25, 1400),cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), thickness=2)
-    result.write(frame)
+    # result.write(frame)
     cv2.imshow("frame", cv2.resize(frame, None, fx=0.5, fy=0.5))
     key = cv2.waitKey(10) & 0xFF
     if key == ord('q'):
         break
 
-result.release()
+# result.release()
 cv2.destroyAllWindows()
